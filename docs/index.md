@@ -75,15 +75,6 @@ services, consensus, and smart contracts (Chaincode) execution. It features
 powerful container technology to host any mainstream language for smart
 contracts development.
 
-## Table of Contents
-
-Below, you'll find the following sections:
-
-* [Read All About It](#read-all-about-it)
-* [Developer guides](#developer-guides)
-    * [Application developer's guide](#application-developer-guide)
-    * [Fabric developer's guide](#fabric-developer-guide)
-* [Operations guide](#operations-guide)
 
 ## Read all about it
 
@@ -97,51 +88,6 @@ extend and improve its capabilities.
 the Fabric project's documentation.
 - [Fabric FAQs](https://github.com/hyperledger/fabric/tree/master/docs/FAQ)
 
-# Developer guides
-
-There are two distinct types of developers for which we have authored this
-documentation: 1) [application developers](#application-developer-guide)
-building applications and solutions using the Hyperledger Fabric 2) developers
-who want to engage in the [development of the Hyperledger Fabric](#fabric-developer-guide)
-itself. We distinguish these two personas because the development setup
-for the Hyperledger Fabric developer is much more involved as they need to
-be able to build the software and there are additional prerequisites that need
-to be installed that are largely unnecessary for developers building
-applications.
-
-## Application developer guide
-
-- [CLI](API/CLI.md): working with the command-line interface.
-- [Node.js SDK](http://fabric-sdk-node.readthedocs.io/en/latest/node-sdk-guide):
-working with the Node.js SDK.
-- Java SDK (coming soon).
-- [Python SDK](https://wiki.hyperledger.org/projects/fabric-sdk-py.md): working with the Python SDK.
-- [Writing, Building, and Running Chaincode](Setup/Chaincode-setup.md):
-a step-by-step guide to developing and testing Chaincode.
-- [Chaincode FAQ](FAQ/chaincode_FAQ.md): a FAQ for all of your burning questions
-relating to Chaincode.
-
-## Fabric developer guide
-
-- [Making code contributions](CONTRIBUTING.md): First, you'll want to familiarize
-     yourself with the project's contribution guidelines.
-- [Setting up the development environment](dev-setup/devenv.md): after that, you
-     will want to set up your development environment.
-- [Building the Fabric core](dev-setup/build.md): next, try building the project
-     in your local development environment to ensure that everything is set up
-     correctly.
-- [Building outside of Vagrant](dev-setup/build.md#building-outside-of-vagrant):
-     for the *adventurous*, you might try to build outside of the standard
-     Vagrant development environment.
-- [Logging control](Setup/logging-control.md): describes how to tweak the logging
-     levels of various components within the Fabric.
-- [License header](dev-setup/headers.txt): every source file must include this
-     license header modified to include a copyright statement for the principle
-     author(s).
-
-# Operations guide
-
-(coming soon)
 
 **Note:** if you are looking for instructions to operate the fabric for a POC,
 we recommend that you use the more stable v0.6 [Starter Kit](http://hyperledger-fabric.readthedocs.io/en/v0.6/starter/fabric-starter-kit/)
