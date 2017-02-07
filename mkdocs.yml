@@ -8,16 +8,22 @@ theme_dir: 'docs/custom_theme'
 
 pages:
 - Home: index.md
-- Why Hyperledger Fabric?: whyfabric.md
-- Fabric overview: overview.md
-#- Fabric capabilities: capabilities.md
-#- Fabric architecture: architecture.md
-- Getting started: gettingstarted.md
-#- Chaincode and sample program: chaincode.md
-- Glossary: glossary.md
+- Introduction: 
+  - Why Fabric: whyfabric.md
+  - High Level Architecture: overview.md
+  - Architectural Component Deep Dive: deepdive.md
+  - Glossary: glossary.md
+- Use Cases: usecases.md
+- Quick Start: gettingstarted.md
 - Releases: releases.md
-
-- Fabric Developer:
+- Chaincode Developer: 
+  - Writing Chaincode: chaincodedev.md
+  - Writing, Building, and Running Chaincode: Setup/Chaincode-setup.md
+- Application Developer:  
+  - CLI: API/CLI.md
+  - Node Developer: node.md
+  - Java Developer: java.md
+- Contributing Developer:
   - v1.0 Preview: abstract_v1.md
   - Contributing: CONTRIBUTING.md
   - Maintainers: MAINTAINERS.md
@@ -32,15 +38,9 @@ pages:
   - Canonical Use Cases: biz/usecases.md
   - Style Guides:
     - Golang: Style-guides/go-style.md
-
-- Application Developer:
-  - CLI: API/CLI.md
-  - Writing, Building, and Running Chaincode: Setup/Chaincode-setup.md
-  - Chaincode FAQ: FAQ/chaincode_FAQ.md
-
-- Setup:
-  - Fabric CA: Setup/ca-setup.md
-  - Logging Control: Setup/logging-control.md
+- Administration and Operations:
+  - Debugging and Logging: Setup/logging-control.md
+- Frequently Asked Question: faq.md
 
 markdown_extensions:
   - toc:

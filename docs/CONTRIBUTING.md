@@ -79,6 +79,14 @@ the `lf-sandbox`
 you should be ready to set up your local development
 [environment](dev-setup/devenv.md).
 
+Next, try [building the project](dev-setup/build.md) in your local development
+environment to ensure that everything is set up correctly.
+
+[Logging control](Setup/logging-control.md) describes how to tweak the logging
+levels of various components within the Fabric. Finally, every source file
+needs to include a [license header](dev-setup/headers.txt): modified to include
+a copyright statement for the principle author(s).
+     
 ## What makes a good change request?
 
 * One change at a time. Not five, not three, not ten. One and only one. Why?
