@@ -1,10 +1,3 @@
-# Incubation Notice
-
-This project is a Hyperledger project in _Incubation_. It was proposed to the
-community and documented [here](https://goo.gl/RYQZ5N). Information on what
-_Incubation_ entails can be found in the [Hyperledger Project Lifecycle
-document](https://goo.gl/4edNRc).
-
 [![Build Status](https://jenkins.hyperledger.org/buildStatus/icon?job=fabric-merge-x86_64)](https://jenkins.hyperledger.org/view/fabric/job/fabric-merge-x86_64/)
 [![Go Report Card](https://goreportcard.com/badge/github.com/hyperledger/fabric)](https://goreportcard.com/report/github.com/hyperledger/fabric)
 [![GoDoc](https://godoc.org/github.com/hyperledger/fabric?status.svg)](https://godoc.org/github.com/hyperledger/fabric)
@@ -12,18 +5,18 @@ document](https://goo.gl/4edNRc).
 
 # Hyperledger Fabric
 
-The Fabric is an implementation of blockchain technology, leveraging familiar
-and proven technologies. It offers a modular [architecture](architecture.md)
-allowing pluggable implementations of various capabilities, such as smart
-contracts (chaincode), cryptography, consensus, ledger datastore and more. It
-leverages powerful container technology for its deployment and for providing
-the execution environment for the smart contracts (chaincode) such that the
-network is protected from malicious code.
+The Hyperledger Fabric is an implementation of blockchain technology,
+leveraging familiar and proven technologies. It offers a modular
+[architecture](architecture.md) allowing pluggable implementations of
+various capabilities, such as smart contracts (chaincode), cryptography,
+consensus, ledger datastore and more. It leverages powerful container technology
+for its deployment and for providing the execution environment for the smart
+contracts (chaincode) such that the network is protected from malicious code.
 
-## Releases
+## Get Hyperledger Fabric
 
 The Fabric releases are documented [here](releases.md). We
-released our second release under the governance of the Hyperledger Project -
+published our second release under the governance of the Hyperledger Project -
 [v0.6-preview](http://hyperledger-fabric.readthedocs.io/en/v0.6/) in October,
 2016.
 
@@ -34,13 +27,13 @@ you use the
 while the architectural refactoring for our upcoming v1.0 release is still in
 development.
 
-However, if you'd like a taste of what the Fabric v1.0 architecture has in
-store, we invite you to read the preview [here](abstract_v1.md).
+However, if you'd like a taste of what the Hyperledger Fabric architecture has
+in store, we invite you to read the preview [here](abstract_v1.md).
 
-Finally, if you are adventurous, we invite you to explore the current state of
+If you are *adventurous*, we invite you to explore the current state of
 development using the [v1.0 Starter Kit](gettingstarted.md), with the caveat
-that it is not yet completely stable. We hope to have a v1.0-alpha release in the
-very near term.
+that it is not yet completely stable. We hope to have a stable v1.0-alpha
+release in the very near term.
 
 # Hyperledger Fabric Documentation
 
@@ -81,21 +74,6 @@ We welcome contributions to the Hyperledger Project in many forms. There's
 always plenty to do! Full details of how to contribute to this project are
 documented in the [Contribution Guidelines](CONTRIBUTING.md).
 
-## Maintainers
-
-The project's [maintainers](MAINTAINERS.md) are responsible for reviewing and
-merging all patches submitted for review and they guide the over-all technical
-direction of the project within the guidelines established by the Hyperledger
-Project's Technical Steering Committee (TSC).
-
-## Communication <a name="communication"></a>
-
-We use [Hyperledger Slack](https://slack.hyperledger.org/) for communication and
-Google Hangouts&trade; for screen sharing between developers. Our development
-planning and prioritization is done in [JIRA](https://jira.hyperledger.org),
-and we take longer running discussions/decisions to the
-[mailing list](http://lists.hyperledger.org/mailman/listinfo/hyperledger-fabric).
-
 ## Still Have Questions?
 We try to maintain a comprehensive set of documentation (see below) for various
 audiences. However, we realize that often there are questions that remain
@@ -104,7 +82,15 @@ project not answered in this documentation, please use
 [StackOverflow](http://stackoverflow.com/questions/tagged/hyperledger). If you
 need help finding things, please don't hesitate to send a note to the
 [mailing list](http://lists.hyperledger.org/mailman/listinfo/hyperledger-fabric),
-or ask on [Slack]((https://slack.hyperledger.org/)).
+or ask on [RocketChat]((https://chat.hyperledger.org/)) (an alternative to
+Slack).
+
+# Incubation Notice
+
+This project is a Hyperledger project in _Incubation_. It was proposed to the
+community and documented [here](https://goo.gl/RYQZ5N). Information on what
+_Incubation_ entails can be found in the [Hyperledger Project Lifecycle
+document](https://goo.gl/4edNRc).
 
 # License <a name="license"></a>
 The Hyperledger Project uses the [Apache License Version 2.0](LICENSE) software

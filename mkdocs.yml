@@ -10,8 +10,8 @@ pages:
 - Home: index.md
 - Introduction: 
   - Why Fabric: whyfabric.md
-  - High Level Architecture: overview.md
-  - Architectural Component Deep Dive: deepdive.md
+  - High Level Architecture: architecture.md
+  - Architectural Component Deep Dive: arch-deep-dive.md
   - Glossary: glossary.md
 - Use Cases: usecases.md
 - Quick Start: gettingstarted.md
