@@ -21,18 +21,24 @@ and channel, or quickly jump to the application development phase.
 
 ## Prerequisites and setup
 
-* [Docker](https://www.docker.com/products/overview) - v1.12 or higher
+* [Docker](https://www.docker.com/products/overview) - v1.13 or higher
 * [Docker Compose](https://docs.docker.com/compose/overview/) - v1.8 or higher
-* [Node.js](https://nodejs.org/en/download/) - comes with the node package manager (npm).
-If you already have npm on your machine, issue the following command to retrieve the latest package:
+* [Node.js & npm](https://nodejs.org/en/download/) - node v6.9.5 and npm v3.10.10
+If you already have node on your machine, use the node website to install v6.9.5 or
+issue the following command in your terminal:
 ```bash
-npm install npm@latest
+nvm install v6.9.5
 ```
-then execute the following to see your version:
+then execute the following to see your versions:
 ```bash
+# should be 6.9.5
+node -v
+```
+AND
+```bash
+# should be 3.10.10
 npm -v
 ```
-You're looking for a version higher than 2.1.8.
 
 ## Curl the source code to create network entities
 
@@ -132,7 +138,7 @@ exit
 where you curled the network code.  AND make sure you have exited the cli container.
 * Execute the following command:
 ```bash
-curl -OOOOOO https://raw.githubusercontent.com/hyperledger/fabric-sdk-node/master/examples/balance-transfer/{config.json,deploy.js,helper.js,invoke.js,query.js,package.json}
+curl -OOOOOO https://raw.githubusercontent.com/hyperledger/fabric-sdk-node/v1.0-alpha/examples/balance-transfer/{config.json,deploy.js,helper.js,invoke.js,query.js,package.json}
 ```
 
 This command pulls the javascript code for issuing your deploy, invoke and query calls.
@@ -254,8 +260,9 @@ already occupied.  If this occurs, you will need to kill the container that is u
 If a file cannot be located, make sure your curl commands executed successfully and make
 sure you are in the directory where you pulled the source code.
 
-If you are receiving timeout or GRPC communication errors, try restarting your
-failing docker process.  For example:
+If you are receiving timeout or GRPC communication errors, make sure you have the
+correct version of Docker installed - v1.13.0.  Then try restarting your failing
+docker process.  For example:
 ```bash
 docker stop peer0
 ```
@@ -290,8 +297,8 @@ AND THEN
 CORE_PEER_COMMITTER_LEDGER_ORDERER=<IP_ADDRESS> CORE_PEER_ADDRESS=<IP_ADDRESS> peer channel join -b myc1.block
 ```
 
-If you are seeing errors while using the node SDK, make sure you have a current version
-of node.js and npm installed on your machine.  
+If you are seeing errors while using the node SDK, make sure you have the correct versions
+of node.js and npm installed on your machine.  You want node v6.9.5 and npm v3.10.10.
 
 If you ran through the automated channel create/join process (i.e. did not comment out
 `channel_test.sh` in the `docker-compose-gettingstarted.yml`), then channel - `myc1` - and
