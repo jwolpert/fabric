@@ -21,9 +21,9 @@ pages:
 - Getting Started:
   - The pieces: included.md
   - Setting up: asset_setup.md
-    - Asset Transfer through SDK: asset_sdk.md
-    - Using the CLI: asset_cli.md
-    - Troubleshooting: asset_trouble.md
+  - Asset Transfer through SDK: asset_sdk.md
+  - Using the CLI: asset_cli.md
+  - Troubleshooting: asset_trouble.md
 
 - Application Interfaces:
   - CLI: API/CLI.md
@@ -59,7 +59,7 @@ pages:
     - Committers: committer.md
   - Policies & system chaincode: endorsement-policies.md
   - Ordering service: orderingservice.md
-    - Pluggable implementations: pluggableos.md
+  - Pluggable implementations: pluggableos.md
   - Ledger: ledger.md
   - Gossip: gossip.md
   - Security & cryptography: Setup/ca-setup.md
