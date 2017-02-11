@@ -14,19 +14,12 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package genesis
+package common
 
-import (
-	"testing"
-
-	"github.com/hyperledger/fabric/common/configtx"
-	cb "github.com/hyperledger/fabric/protos/common"
-)
-
-func TestSanity(t *testing.T) {
-	impl := NewFactoryImpl(configtx.NewSimpleTemplate(&cb.ConfigItem{}))
-	_, err := impl.Block("TestChainID")
-	if err != nil {
-		t.Fatalf("Basic sanity fails")
+func NewConfigGroup() *ConfigGroup {
+	return &ConfigGroup{
+		Groups:   make(map[string]*ConfigGroup),
+		Values:   make(map[string]*ConfigValue),
+		Policies: make(map[string]*ConfigPolicy),
 	}
 }

@@ -14,11 +14,12 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package configtx
+package configtxfilter
 
 import (
 	"fmt"
 
+	"github.com/hyperledger/fabric/common/configtx/api"
 	"github.com/hyperledger/fabric/orderer/common/filter"
 	cb "github.com/hyperledger/fabric/protos/common"
 
@@ -26,25 +27,25 @@ import (
 )
 
 type configFilter struct {
-	configManager Manager
+	configManager api.Manager
 }
 
 // New creates a new configfilter Rule based on the given Manager
-func NewFilter(manager Manager) filter.Rule {
+func NewFilter(manager api.Manager) filter.Rule {
 	return &configFilter{
 		configManager: manager,
 	}
 }
 
 type configCommitter struct {
-	manager        Manager
-	configEnvelope *cb.ConfigurationEnvelope
+	manager        api.Manager
+	configEnvelope *cb.ConfigEnvelope
 }
 
 func (cc *configCommitter) Commit() {
 	err := cc.manager.Apply(cc.configEnvelope)
 	if err != nil {
-		panic(fmt.Errorf("Could not apply configuration transaction which should have already been validated: %s", err))
+		panic(fmt.Errorf("Could not apply config transaction which should have already been validated: %s", err))
 	}
 }
 
@@ -65,7 +66,7 @@ func (cf *configFilter) Apply(message *cb.Envelope) (filter.Action, filter.Commi
 		return filter.Forward, nil
 	}
 
-	config := &cb.ConfigurationEnvelope{}
+	config := &cb.ConfigEnvelope{}
 	err = proto.Unmarshal(msgData.Data, config)
 	if err != nil {
 		return filter.Reject, nil
