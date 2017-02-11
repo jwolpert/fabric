@@ -7,6 +7,7 @@ strict: true
 theme_dir: 'docs/custom_theme'
 
 pages:
+- Home: index.md
 - Key Concepts:
   - Overview: overview.md
   - Why Fabric: whyfabric.md
