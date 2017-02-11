@@ -7,7 +7,7 @@ strict: true
 theme_dir: 'docs/custom_theme'
 
 pages:
-- Home: index.md
+- Home1: index.md
 - Introduction: 
   - Why Fabric: whyfabric.md
   - High Level Architecture: architecture.md
