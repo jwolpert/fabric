@@ -298,7 +298,7 @@ CORE_PEER_COMMITTER_LEDGER_ORDERER=<IP_ADDRESS> CORE_PEER_ADDRESS=<IP_ADDRESS> p
 ```
 
 If you are seeing errors while using the node SDK, make sure you have the correct versions
-of node.js and npm installed on your machine.  You want node v6.9.5 and npm v3.10.10.
+of node.js and npm installed on your machine.  You want node v6.9.5 and npm v3.10.10.  
 
 If you ran through the automated channel create/join process (i.e. did not comment out
 `channel_test.sh` in the `docker-compose-gettingstarted.yml`), then channel - `myc1` - and
