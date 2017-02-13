@@ -54,16 +54,13 @@ Assume these transactions are ordered in the sequence of T1,..,T5. They could be
 same block or in different blocks.  The important takeaway is that they were all
 simulated against the same world state.
 
-1. `T1` passes the validation because it does not perform any read. Further, the
-tuple of keys `k1` and `k2` in the world state are updated to `(k1,2,v1'), (k2,2,v2')`
+1. `T1` passes the validation because it does not perform any read operation. Further, the tuple of keys - `k1` and `k2` - in the world state are updated to `(k1,2,v1'), (k2,2,v2')`
 
-2. `T2` fails the validation because it reads a key `k1` which is modified by a preceding transaction `T1`
+2. `T2` fails the validation because it reads a key, `k1`, which is modified by a preceding transaction - `T1`
 
-3. `T3` passes the validation because it does not perform a read. Further the
-tuple of the key `k2` in the world state are updated to `(k2,3,v2'')`
+3. `T3` passes the validation because it does not perform a read. Further, the tuple of the key, `k2`, in the world state is updated to `(k2,3,v2'')`
 
-4. `T4` fails the validation because it reads a key `k2` which is modified by a preceding transaction `T1`
+4. `T4` fails validation because it reads a key ,`k2`, which was modified by a preceding transaction - `T1`
 
-5. `T5` passes the validation because it reads a key `k5` which is not modified
-by any of the preceding transactions
+5. `T5` passes validation because it reads a key, `k5`, which is not modified by any of the preceding transactions
 
