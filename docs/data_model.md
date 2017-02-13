@@ -34,7 +34,7 @@ new versions).
 
 The validation phase prevents the same key from being modified more than once
 in the same block.  Let's look at a very simplistic example to see how the MVCC pre-image
-+ post-image approach is implemented.  Assume that the version of a key `k` is
+& post-image approach is implemented.  Assume that the version of a key `k` is
 represented in the world state (stateDB) by a tuple `(k,ver,val)` where `ver` is
 the latest version of the key `k` with a value of `val`.
 
