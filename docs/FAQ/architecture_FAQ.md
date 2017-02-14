@@ -3,6 +3,7 @@
 ## Network
 
 __Network architecture__:
+
 Q. In the design document, clients are supposed to be able to connect to all peers (endorsers and consenters). But in reality, the blockchain peers may be hosted in private, restricted and secure network, for example, the participants are likely to host their peer in each internal network. In this case, how can clients connect to all peers? (@huangssh, Nov 16, 2016)
 
 A. Clients only need to connect to as many peers as are required for endorsement. We expect 'clients' will more likely be application servers running close to a peer, which has connection to the peer network, rather than end user clients.  There has been discussion of a 'submitting peer' pattern where your peer could act on behalf of your client to connect to other peers to gather endorsements and submit to ordering.  This is not in plan for v1 but may get re-visited in future releases.
