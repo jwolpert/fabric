@@ -5,10 +5,17 @@
 
 # Hyperledger Fabric
 
-The Hyperledger Fabric is an implementation of blockchain technology,
-leveraging familiar and proven technologies. It offers a modular
-[architecture](architecture.md) allowing pluggable implementations of
-various capabilities, such as smart contracts (chaincode), cryptography,
-consensus, ledger datastore and more. It leverages powerful container technology
-for its deployment and for providing the execution environment for the smart
-contracts (chaincode) such that the network is protected from malicious code.
+Hyperledger Fabric is an open source blockchain technology that leverages
+proven technologies in providing a base [architecture](architecture.md) for
+custom enterprise networks. Hyperledger Fabric is modular, allowing for
+pluggable implementation of blockchain components, such as smart contracts
+(chaincode), cryptographic algorithms, consensus protocols and data store
+solutions. The fabric leverages powerful container technology for deployment,
+and to provide a secure chaincode execution environment that protects the
+network against malicious code.
+
+**Attention**: The Hyperledger Fabric project team is continually working to
+improve the security, performance and robustness of the released software, and
+frequently publishes updates. To stay current as the project progresses, please
+see the **Communication** and **Still Have Questions?** topics. Your
+participation in Linux Foundation projects is welcomed and encouraged!
