@@ -65,6 +65,7 @@ pages:
   - Gossip: gossip.md
   - Security & cryptography: Setup/ca-setup.md
   - Components: components.md
+  - Read/Write Set Semantics: readwrite.md
   - Transaction flow: txflow.md
 
 - Getting Help:
