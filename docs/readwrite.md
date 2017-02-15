@@ -89,13 +89,13 @@ in the write set. Further, the version of the key in the world state is changed
 to reflect the latest version.
 
 ##### Example simulation and validation
-This section helps understanding the semantics with the help of an example scenario.
-For the purpose of this example, the presence of a key `k` in the world state is
+This section helps with understanding the semantics through an example scenario.
+For the purpose of this example, the presence of a key, `k`, in the world state is
 represented by a tuple `(k,ver,val)` where `ver` is the latest version of the
 key `k` having `val` as its value.
 
 Now, consider a set of five transactions `T1, T2, T3, T4, and T5`, all simulated
-on the same snapshot of the world state. Following snippet shows the snapshot of
+on the same snapshot of the world state. The following snippet shows the snapshot of
 the world state against which the transactions are simulated and the sequence of
 read and write activities performed by each of these transactions.
 
@@ -110,17 +110,17 @@ T5 -> Write(k6, v6'), read(k5)
 Now, assume that these transactions are ordered in the sequence of T1,..,T5
 (could be contained in a single block or different blocks)
 
-1. `T1` passes the validation because it does not perform any read. Further, the
+1. `T1` passes validation because it does not perform any read. Further, the
 tuple of keys `k1` and `k2` in the world state are updated to `(k1,2,v1'), (k2,2,v2')`
 
-2. `T2` fails the validation because it reads a key `k1` which is modified by a preceding transaction `T1`
+2. `T2` fails validation because it reads a key, `k1`, which was modified by a preceding transaction - `T1`
 
 3. `T3` passes the validation because it does not perform a read. Further the
-tuple of the key `k2` in the world state are updated to `(k2,3,v2'')`
+tuple of the key, `k2`, in the world state is updated to `(k2,3,v2'')`
 
-4. `T4` fails the validation because it reads a key `k2` which is modified by a preceding transaction `T1`
+4. `T4` fails the validation because it reads a key, `k2`, which was modified by a preceding transaction `T1`
 
-5. `T5` passes the validation because it reads a key `k5` which is not modified
+5. `T5` passes validation because it reads a key, `k5,` which was not modified
 by any of the preceding transactions
 
 #### Transactions with multiple read-write sets
