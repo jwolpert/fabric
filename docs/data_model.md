@@ -1,66 +1,35 @@
-# Transaction Data Model
+# Transaction Model
 
-[wip]
+The Fabric transaction model is a complete, self-encapsulated immutable record
+of the state transition on the ledger of the participating parties. It contains
+a chaincode function call, versioned inputs (referred to as the read set), and
+outputs (referred to as the write set). The read-write-sets are the actual states
+making up the multi-version concurrency control, which serves to grant an
+appropriate version to each read request. Transactions issuing write requests
+which might destroy database integrity are aborted at the "validation" phase to
+counter against malicious threats such as double-spending.
 
-The current implementation of Hyperledger Fabric's transaction data model
-utilizes read-write sets, coupled with the added protection of multi-version
-concurrency control to counter against threats such as double-spend.
+Transactions are appended in order of processing to an append-only log with
+cryptographic links to prevent any modification to the records. There is no
+limit on the log size except available physical storage space.
 
-There are three main features to the model - MVCC pre-image, post-image, validation:
+States are data variables of any type represented by binary or text (JSON) format;
+they are scoped and manipulated by chaincodes running on a ledger. A chaincode
+function reads and writes states (read-write set) in the context of a transaction
+proposal, which is endorsed by the counter-parties specified for the chaincode.
+The endorsed proposal is submitted to the network as a transaction for ordering,
+validation, and then committal to the ledger within a block.
 
-1. Transactions arrive in the form of a proposal to the endorsing peers.  The
-endorsing peers simulate the transaction using a set of inputs (i.e. the read set).  
-The read set contains unique keys and the committed versions of these keys,
-which exist in the stateDB.  In other words, the read set or "pre-image" is a
-representation of the current world state for those specified keys.
-[__Note__: the peers can only read the value for the committed state of a key.  
-They cannot read the results of a write operation during the
-simulation/endorsement phase.  This reliance on committed versioning is the
-foundation for data and transactional integrity.]
+Before committal, peers will make sure that the transaction has been both adequately,
+and properly endorsed (i.e. the correct allotment of the specified peers have
+signed the proposal, and these signatures have been authenticated) - this is
+referred to as validation.  Secondly, a versioning check will occur to ensure
+that the key value pairs affected by this transaction have not been altered
+since simulation of the proposal.  Or put another way, the world state for this
+chaincode still mirrors the world state used for the inputs.  If these conditions
+are met, then this transaction is written to the ledger and the versions of the
+keys, along with their new values, are updated in the world state.  
 
-2. The ensuing result of the transaction simulation is the write set or the
-"post-image." It contains the keys and their updated values.
-(No version specified here).  The peers encode the contents (R/W set), sign the
-message, and deliver the payload to an SDK.  All endorsing peers for a specified
-chaincode will perform this operation.  The SDK aggregates the responses, and
-the tx is passed along to the ordering service if the endorsement policy is fulfilled.
-
-3. Transactions are then validated prior to being committed to the ledger.  A
-validation system chaincode will ensure that the committed versions of the keys
-are the same as they were during the simulation phase.  If the current versions
-match the MVCC pre-image, then the transaction is committed and the world state
-is updated (i.e. a block is appended and the stateDB is updated with the keys'
-new versions).
-
-The validation phase prevents the same key from being modified more than once
-in the same block.  Let's look at a very simplistic example to see how the MVCC pre-image
-& post-image approach is implemented.  Assume that the version of a key `k` is
-represented in the world state (stateDB) by a tuple `(k,ver,val)` where `ver` is
-the latest version of the key `k` with a value of `val`.
-
-Now, consider a set of five transactions `T1, T2, T3, T4, T5`, all simulated on the same
-snapshot of the world state.  The following snippet shows the current snapshot
-of the world state and the read/write operations performed by each transaction:
-
-```
-World state: (k1,1,v1), (k2,1,v2), (k3,1,v3), (k4,1,v4), (k5,1,v5)
-T1 -> Write(k1, v1'), Write(k2, v2')
-T2 -> Read(k1), Write(k3, v3')
-T3 -> Write(k2, v2'')
-T4 -> Write(k2, v2'''), read(k2)
-T5 -> Write(k6, v6'), read(k5)
-```
-Assume these transactions are ordered in the sequence of T1,..,T5. They could be in the
-same block or in different blocks.  The important takeaway is that they were all
-simulated against the same world state.
-
-1. `T1` passes the validation because it does not perform any read operation. Further, the tuple of keys - `k1` and `k2` - in the world state are updated to `(k1,2,v1'), (k2,2,v2')`
-
-2. `T2` fails the validation because it reads a key, `k1`, which is modified by a preceding transaction - `T1`
-
-3. `T3` passes the validation because it does not perform a read. Further, the tuple of the key, `k2`, in the world state is updated to `(k2,3,v2'')`
-
-4. `T4` fails validation because it reads a key ,`k2`, which was modified by a preceding transaction - `T1`
-
-5. `T5` passes validation because it reads a key, `k5`, which is not modified by any of the preceding transactions
+See the [Read Write Set](readwrite.md) topic for a deeper dive on transaction
+structure, MVCC and the state DB.  
 
