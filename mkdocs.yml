@@ -13,7 +13,7 @@ pages:
   - Why Fabric: whyfabric.md
   - Use Cases: biz/usecases.md
   - Glossary: glossary.md
-  - Tx Data Model: data_model.md
+  - Transaction Data Model: data_model.md
   - Security Model: security_model.md
   - Multi Channel: multichannel.md
   - Smart Contracts: smartcontract.md
